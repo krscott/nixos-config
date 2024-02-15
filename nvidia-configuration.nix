@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
   # Nvidia support
   # https://nixos.wiki/wiki/Nvidia
