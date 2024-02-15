@@ -99,6 +99,7 @@
   environment.systemPackages = with pkgs; [
     gitFull
     lshw
+    nvtop
     vim
     wget
   ];
