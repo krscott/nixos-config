@@ -88,8 +88,6 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
-      vim
-      wget
     ];
   };
 
@@ -99,8 +97,11 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    lshw
+    autorandr
     git
+    lshw
+    vim
+    wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
