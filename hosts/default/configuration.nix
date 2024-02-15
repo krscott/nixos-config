@@ -4,13 +4,14 @@
 
 # Rebuild with `sudo nixos-rebuild switch`
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./nvidia.nix
+      inputs.home-manager.nixosModules.default
     ];
 
   # Bootloader.
@@ -91,6 +92,14 @@
     ];
   };
 
+  home-manager = {
+    # also pass inputs to home-manager modules
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "kris" = import ./home.nix;
+    };
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -115,7 +124,9 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  #services.openssh.enable = true;
+
+  # Start SSH Agent
   programs.ssh.startAgent = true;
 
   # Open ports in the firewall.
