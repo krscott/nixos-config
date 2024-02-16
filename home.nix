@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
-
-{
+let
+  shellAliases = {
+    l = "ls -alh";
+    ll = "ls -l";
+    ls = "ls --color=tty";
+    ".." = "cd ..";
+  };
+in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "kris";
@@ -71,13 +77,13 @@
   };
   
   programs.bash = {
+    inherit shellAliases;
     enable = true;
-    shellAliases = {
-      l = "ls -alh";
-      ll = "ls -l";
-      ls = "ls --color=tty";
-      ".." = "cd ..";
-    };
+  };
+  
+  programs.zsh = {
+    inherit shellAliases;
+    enable = true;
   };
 
   # Let Home Manager install and manage itself.

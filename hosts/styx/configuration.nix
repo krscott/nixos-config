@@ -11,7 +11,6 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./nvidia.nix
-      #inputs.home-manager.nixosModules.default
     ];
 
   # Bootloader.
@@ -92,14 +91,6 @@
     ];
   };
 
-  #home-manager = {
-  #  # also pass inputs to home-manager modules
-  #  extraSpecialArgs = { inherit inputs; };
-  #  users = {
-  #    "kris" = import ./home.nix;
-  #  };
-  #};
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -144,4 +135,8 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  
+  environment.shells = with pkgs; [ bash zsh ];
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
 }
