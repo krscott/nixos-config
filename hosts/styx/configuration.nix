@@ -4,14 +4,14 @@
 
 # Rebuild with `sudo nixos-rebuild switch`
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./nvidia.nix
-      inputs.home-manager.nixosModules.default
+      #inputs.home-manager.nixosModules.default
     ];
 
   # Bootloader.
@@ -92,13 +92,13 @@
     ];
   };
 
-  home-manager = {
-    # also pass inputs to home-manager modules
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "kris" = import ./home.nix;
-    };
-  };
+  #home-manager = {
+  #  # also pass inputs to home-manager modules
+  #  extraSpecialArgs = { inherit inputs; };
+  #  users = {
+  #    "kris" = import ./home.nix;
+  #  };
+  #};
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
