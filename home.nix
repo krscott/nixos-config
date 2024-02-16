@@ -87,5 +87,15 @@ in {
       inherit shellAliases;
       enable = true;
     };
+    
+    git = {
+      enable = true;
+      aliases = {
+        s = "status";
+        lol = "log --oneline --date-order";
+        k = "!gitk --date-order";
+        ka = "!gitk --all --date-order";
+      };
+    };
   };
 }
