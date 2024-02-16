@@ -75,6 +75,9 @@ in {
   home.sessionVariables = {
     EDITOR = "vim";
   };
+
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
   
   programs.bash = {
     inherit shellAliases;
@@ -84,8 +87,16 @@ in {
   programs.zsh = {
     inherit shellAliases;
     enable = true;
+    zplug = {
+      enable = true;
+      plugins = [
+        { name = "zsh-users/zsh-autosuggestions"; }
+        { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
+        { name = "zsh-users/zsh-syntax-highlighting"; tags = [ defer:2 ]; }
+      ];
+    };
+    #initExtra = ''
+    #  bindkey "''${key[Up]}" up-line-or-search
+    #''
   };
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }
