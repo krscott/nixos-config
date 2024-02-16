@@ -85,16 +85,34 @@ in {
   };
   
   programs.zsh = {
+    # https://nixos.wiki/wiki/Zsh
     inherit shellAliases;
     enable = true;
-    zplug = {
-      enable = true;
-      plugins = [
-        { name = "zsh-users/zsh-autosuggestions"; }
-        { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
-        { name = "zsh-users/zsh-syntax-highlighting"; tags = [ defer:2 ]; }
-      ];
-    };
+    #zplug = {
+    #  enable = true;
+    #  plugins = [
+    #    { name = "zsh-users/zsh-autosuggestions"; }
+    #    { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
+    #    { name = "zsh-users/zsh-syntax-highlighting"; tags = [ defer:2 ]; }
+    #  ];
+    #};
+    plugins = [
+      {
+        name = "powerlevel10k";
+        src = pkgs.zsh-powerlevel10k;
+        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      }
+      {
+        name = "autosuggestions";
+        src = pkgs.zsh-autosuggestions;
+        file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
+      }
+      {
+        name = "syntax-highlighting";
+        src = pkgs.zsh-syntax-highlighting;
+        file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
+      }
+    ];
     #initExtra = ''
     #  bindkey "''${key[Up]}" up-line-or-search
     #''

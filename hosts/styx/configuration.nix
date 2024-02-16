@@ -139,4 +139,8 @@
   environment.shells = with pkgs; [ bash zsh ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
+  
+  fonts.packages = with pkgs; [
+    meslo-lgs-nf  # Required for zsh powerlevel10k 
+  ];
 }
