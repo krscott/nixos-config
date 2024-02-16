@@ -2,7 +2,7 @@
 let
   shellAliases = {
     l = "ls -alh";
-    ll = "ls -l";
+    ll = "ls -lh";
     ls = "ls --color=tty";
     ".." = "cd ..";
   };
@@ -113,6 +113,11 @@ in {
         name = "history-substring-search";
         src = pkgs.zsh-history-substring-search;
         file = "share/zsh-history-substring-search/zsh-history-substring-search.zsh";
+      }
+      {
+        name = "you-should-use";
+        src = pkgs.zsh-you-should-use;
+        file = "share/zsh/plugins/you-should-use/you-should-use.plugin.zsh";
       }
     ];
     initExtra = ''
