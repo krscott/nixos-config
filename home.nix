@@ -103,6 +103,11 @@ in {
         file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
       }
       {
+        name = "powerlevel10k-dotfile";
+        src = ./dotfiles/p10k;
+        file = "p10k.zsh";
+      }
+      {
         name = "autosuggestions";
         src = pkgs.zsh-autosuggestions;
         file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
