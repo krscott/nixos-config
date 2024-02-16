@@ -109,6 +109,18 @@ in {
         src = pkgs.zsh-syntax-highlighting;
         file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
       }
+      {
+        name = "history-substring-search";
+        src = pkgs.zsh-history-substring-search;
+        file = "share/zsh-history-substring-search/zsh-history-substring-search.zsh";
+      }
     ];
+    initExtra = ''
+      # zsh-history-substring-search
+      bindkey '^[[A' history-substring-search-up
+      bindkey '^[OA' history-substring-search-up
+      bindkey '^[[B' history-substring-search-down
+      bindkey '^[OB' history-substring-search-down
+    '';
   };
 }
