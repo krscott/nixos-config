@@ -1,13 +1,21 @@
-{ config, pkgs, ... }:
+{ config, pkgs, ... } @ inputs:
 let
+
   shellAliases = {
     l = "ls -alh";
     ll = "ls -lh";
     ls = "ls --color=tty";
     ".." = "cd ..";
   };
+
+  # TODO: Move "zsh.nix" to imports
   zsh = (import ./zsh/zsh.nix) { inherit shellAliases pkgs; };
-in {
+in
+{
+  imports = [
+    ./hyprland.nix
+  ];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "kris";
@@ -87,7 +95,7 @@ in {
       inherit shellAliases;
       enable = true;
     };
-    
+
     git = {
       enable = true;
       aliases = {
