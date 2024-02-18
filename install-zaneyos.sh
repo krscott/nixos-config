@@ -87,5 +87,5 @@ sed -i "/^\s*gpuType[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gpuType\"/" ./op
 
 nixos-generate-config --show-hardware-config > hardware.nix
 
-NIX_CONFIG="experimental-features = nix-command flakes" 
+NIX_CONFIG="experimental-features = nix-command flakes"
 sudo nixos-rebuild switch --flake .#$hostName
