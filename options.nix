@@ -83,4 +83,9 @@ in {
   # Enable Python & PyCharm
   python = false;
 
+  # My added options
+
+  # Audio
+  audio = "pulseaudio";  # "pipewire" or "pulseaudio"
 }
+

@@ -2,6 +2,7 @@
 
 {
   imports = [
+    # Standard ZaneyOS imports
     ./amd-gpu.nix
     ./appimages.nix
     ./autorun.nix
@@ -25,5 +26,8 @@
     ./services.nix
     ./steam.nix
     ./vm.nix
+
+    # Extra imports
+    ./audio.nix
   ];
 }
