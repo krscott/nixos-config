@@ -4,17 +4,17 @@
 
 let
   # THINGS YOU NEED TO CHANGE
-  username = "zaney";
-  hostname = "hyprnix";
+  username = "kris";
+  hostname = "styx";
   userHome = "/home/${username}";
-  flakeDir = "${userHome}/zaneyos";
+  flakeDir = "${userHome}/nixos";
   waybarStyle = "slickbar-num"; # simplebar, slickbar, slickbar-num, or default
 in {
   # User Variables
   username = "${username}";
   hostname = "${hostname}";
-  gitUsername = "Tyler Kelley";
-  gitEmail = "tylerzanekelley@gmail.com";
+  gitUsername = "Kris Scott";
+  gitEmail = "kscott91@gmail.com";
   theme = "atelier-cave";
   slickbar = if waybarStyle == "slickbar" then true else false;
   slickbar-num = if waybarStyle == "slickbar-num" then true else false;
@@ -26,8 +26,8 @@ in {
   wallpaperDir = "${userHome}/Pictures/Wallpapers";
   screenshotDir = "${userHome}/Pictures/Screenshots";
   flakeDir = "${flakeDir}";
-  flakePrev = "${userHome}/.zaneyos-previous";
-  flakeBackup = "${userHome}/.zaneyos-backup";
+  flakePrev = "${userHome}/.nixos-previous";
+  flakeBackup = "${userHome}/.nixos-backup";
   terminal = "alacritty"; # This sets the terminal that is used by the hyprland terminal keybinding
 
   # System Settings
@@ -43,14 +43,15 @@ in {
   sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
   # For Hybrid Systems intel-nvidia
   # Should Be Used As gpuType
-  cpuType = "intel";
-  gpuType = "amd";
+  cpuType = "amd";
+  gpuType = "nvidia";
 
   # Nvidia Hybrid Devices
   # ONLY NEEDED FOR HYBRID
-  # SYSTEMS! 
-  intel-bus-id = "PCI:0:2:0";
-  nvidia-bus-id = "PCI:14:0:0";
+  # SYSTEMS!
+  # $ lswh -c display 
+  #intel-bus-id = "PCI:0:2:0";
+  #nvidia-bus-id = "PCI:14:0:0";
 
   # Enable / Setup NFS
   nfs = false;
