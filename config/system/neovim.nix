@@ -6,6 +6,7 @@ let
 in {
   programs.nixvim = {
     enable = true;
+    defaultEditor = true;
 
     plugins = {
       telescope.enable = true;
