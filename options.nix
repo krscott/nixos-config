@@ -86,6 +86,6 @@ in {
   # My added options
 
   # Audio
-  audio = "pulseaudio";  # "pipewire" or "pulseaudio"
+  audio = "pipewire";  # "pipewire" or "pulseaudio"
 }
 
