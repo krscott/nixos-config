@@ -67,6 +67,7 @@ lib.mkIf (theShell == "zsh") {
       lal="lsd -al";
       ".."="cd ..";
       neofetch="neofetch --ascii ~/.config/ascii-neofetch";
+      reboot="shutdown -r now";
     };
   };
 }
