@@ -12,6 +12,7 @@
       ./hardware-configuration.nix
       ./nvidia.nix
       ./steam.nix
+      ./hyprland.nix
     ];
 
   # Bootloader.
@@ -136,12 +137,12 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+
   environment.shells = with pkgs; [ bash zsh ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
-  
+
   fonts.packages = with pkgs; [
-    meslo-lgs-nf  # Required for zsh powerlevel10k 
+    meslo-lgs-nf  # Required for zsh powerlevel10k
   ];
 }
