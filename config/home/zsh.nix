@@ -7,6 +7,18 @@ lib.mkIf (theShell == "zsh") {
     syntaxHighlighting.enable = true;
     enableAutosuggestions = true;
     historySubstringSearch.enable = true;
+    plugins = [
+      {
+	name = "powerlevel10k";
+	src = pkgs.zsh-powerlevel10k;
+	file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      }
+      {
+	name = "my-p10k-dotfile";
+	src = ./files;
+	file = "p10k.zsh";
+      }
+    ];
     profileExtra = ''
       #if [ -z "$DISPLAY" ] && [ "$XDG_VNTR" = 1 ]; then
       #  exec Hyprland
