@@ -3,8 +3,8 @@
 # https://gitlab.com/Zaney/zaneyos/-/wikis/Setting-Options
 
 let
-  username = "zaney";
-  hostname = "hyprnix";
+  username = "kris";
+  hostname = "styx";
   userHome = "/home/${username}";
   flakeDir = "${userHome}/zaneyos";
   waybarStyle = "default"; # simplebar, slickbar, or default
@@ -12,8 +12,8 @@ in {
   # User Variables
   username = "${username}";
   hostname = "${hostname}";
-  gitUsername = "Tyler Kelley";
-  gitEmail = "tylerzanekelley@gmail.com";
+  gitUsername = "Kris Scott";
+  gitEmail = "kscott91@gmail.com";
   theme = "gigavolt";
   slickbar = if waybarStyle == "slickbar" then true else false;
   simplebar = if waybarStyle == "simplebar" then true else false;
@@ -39,18 +39,18 @@ in {
   # This is for running NixOS
   # On a tmpfs or root on RAM
   # You Most Like Want This -> false
-  impermanence = true; # This should be set to false unless you know what your doing!
+  impermanence = false; # This should be set to false unless you know what your doing!
   sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
   # For Hybrid Systems intel-nvidia
   # Should Be Used As gpuType
-  cpuType = "intel";
-  gpuType = "amd";
+  cpuType = "amd";
+  gpuType = "nvidia";
 
   # Nvidia Hybrid Devices
   # ONLY NEEDED FOR HYBRID
   # SYSTEMS! 
-  intel-bus-id = "PCI:0:2:0";
-  nvidia-bus-id = "PCI:14:0:0";
+  #intel-bus-id = "PCI:0:2:0";
+  #nvidia-bus-id = "PCI:14:0:0";
 
   # Enable / Setup NFS
   nfs = false;
